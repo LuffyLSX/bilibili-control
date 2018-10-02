@@ -2,8 +2,8 @@
 // @name         B站播放器快捷键
 // @namespace    http://tampermonkey.net/
 // @version      0.2
-// @description  try to take over the world!
-// @author       You
+// @description  alt开关弹幕、enter全屏、crtl+方向键切换集数
+// @author       LuffyLSX
 // @match        *://*.bilibili.com/*
 // ==/UserScript==
 'use strict';
