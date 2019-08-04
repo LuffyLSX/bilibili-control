@@ -30,21 +30,34 @@
 })();
 //切换集数
 (function(){
-    var titleList = [];
     var ep = 0;
-    for (var i = 0; i < document.getElementsByClassName('episode-item').length; i++){
-        titleList.push(document.getElementsByClassName('episode-item')[i].title);
-    }
+    var nep = 0;
     $(document).keydown(function(event){
+        for (var n in document.getElementsByClassName('ep-item')){
+            if (document.getElementsByClassName('ep-item')[n] == document.getElementsByClassName('ep-item cursor visited')[0]){
+            nep = Number(n);
+        }
+    }
+        for (var i in document.getElementsByClassName('episode-item')){
+            if (document.getElementsByClassName('episode-item')[i] == document.getElementsByClassName('episode-item on')[0]){
+            ep = Number(i);
+        }
+    }
         if(event.ctrlKey && event.which == 39){
-            var epTitle = document.getElementsByClassName('episode-item on')[0].title;
-            ep = titleList.indexOf(epTitle);
-            document.getElementsByClassName('episode-item')[ep + 1].click();
+            if(document.getElementsByClassName('btn-old').length == 1){
+                document.getElementsByClassName('ep-item')[nep + 1].click();
+            }
+            else{
+                document.getElementsByClassName('episode-item')[ep + 1].click();
+            }
         }
         if(event.ctrlKey && event.which == 37){
-            var epTitle1 = document.getElementsByClassName('episode-item on')[0].title;
-            ep = titleList.indexOf(epTitle1);
-            document.getElementsByClassName('episode-item')[ep - 1].click();
+            if(document.getElementsByClassName('btn-old').length == 1){
+                document.getElementsByClassName('ep-item')[nep - 1].click();
+            }
+            else{
+                document.getElementsByClassName('episode-item')[ep - 1].click();
+            }
         }
     });
 })()
